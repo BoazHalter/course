@@ -16,9 +16,9 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deliver') { 
+        stage('Build & Publish docker image') { 
             steps {
-                sh 'find / -name *.war' 
+                sh 'docker build . -t 10.0.0.26:5012/java-with-time-tracker:${BUILD_NUMBER}' 
             }
         }
     }
