@@ -17,14 +17,14 @@ pipeline {
             }
         }
     }
-    agent {
-        master {
+   node {
             stage('Build & Publish docker image') { 
-            steps {
-                sh 'docker build . -t 10.0.0.26:5012/java-with-time-tracker:${BUILD_NUMBER}' 
-                }
+             steps {
+                 sh 'docker build . -t 10.0.0.26:5012/java-with-time-tracker:${BUILD_NUMBER}' 
+                 }
             }
-        }
+   }
+}
     }
     
 }
