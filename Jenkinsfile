@@ -16,10 +16,15 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Build & Publish docker image') { 
+    }
+    agent {
+        master {
+            stage('Build & Publish docker image') { 
             steps {
                 sh 'docker build . -t 10.0.0.26:5012/java-with-time-tracker:${BUILD_NUMBER}' 
+                }
             }
         }
     }
+    
 }
