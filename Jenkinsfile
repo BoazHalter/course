@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      args 'mvn -B -DskipTests clean package'
-      image 'maven:3-alpine'
+       image 'maven:3-alpine'
+       args '-v /root/.m2:/root/.m2'
     }
 
   }
