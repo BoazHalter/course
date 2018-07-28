@@ -17,9 +17,8 @@ pipeline {
             }
         }
    }
-    agent {
-        node {
+   node {
             sh ' echo ${node}'
         }
-    }
+    
 }
