@@ -20,6 +20,9 @@ pipeline {
 }
 pipeline {
   node {
-    steps{sh ' echo ${node}'}
+    steps {
+        sh ' echo ${node}'
+        sh ' docker ps'
+    }
        }
 }
