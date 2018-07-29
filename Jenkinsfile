@@ -18,9 +18,14 @@ pipeline {
             }
                  
         }
-        steps {
+        agent {
+            label "master"
+        }
+        stage('docker build') {
+            steps {
             sh'echo test'
            }
+        }
       }
 }
     
