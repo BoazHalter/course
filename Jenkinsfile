@@ -17,8 +17,6 @@ pipeline {
             }
                  
         }
-    }
-    stages {      
         stage('boom'){
             steps { 
                 node('master') {
@@ -26,7 +24,9 @@ pipeline {
                 }
             }
         }
+    
     }
+        
 }
     
  
