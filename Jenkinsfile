@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
+            reuseNode true
         }
     }
     stages {
@@ -19,7 +20,7 @@ pipeline {
         }
         stage('boom'){
             agent {
-                node {
+                node('master'){
                     steps {
                       sh'echo test'
                     }
