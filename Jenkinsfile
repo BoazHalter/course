@@ -20,11 +20,7 @@ pipeline {
 }
 pipeline {
   node {
-        
-      stages {
-          stage('Docker-Build') {
-              sh 'docker build . '
-          }
-      }     
+    sh 'docker build . '
+       }     
    }
 }
