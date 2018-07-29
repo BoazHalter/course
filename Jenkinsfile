@@ -20,7 +20,11 @@ pipeline {
 }
 pipeline {
   node {
-        sh ' echo ${node}'
-        sh ' docker ps'    
-       }
+        
+      stages {
+          stage('Docker-Build') {
+              sh 'docker build . '
+          }
+      }     
+   }
 }
