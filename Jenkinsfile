@@ -17,15 +17,19 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
 	    }
 	}
-        stages 
+        stage('Test')
 	{
-	     stage('Test')
-	     {
-                  steps
-	          {
-                   sh 'mvn test'
-                  }
-             }
+	  agent {
+		  image 'maven:3-alpine'
+                    args '-v /root/.m2:/root/.m2'
+		 reuseNode true
+		}
+		  
+            steps
+	    {
+                 sh 'mvn test'
+            }
          }
      }
  }
+ 
