@@ -15,10 +15,11 @@ pipeline {
             steps {
                 sh 'mvn test' 
             }
-            node('master') {
-                sh'echo test'
-           }     
+                 
         }
+        node('master') {
+                sh'echo test'
+           }
     }
 }
     
