@@ -18,12 +18,9 @@ pipeline {
                  
         }
     }
-    stages {
-        stage('bwat') {
-        
+    stages {        
         node('master') {
                 sh'echo test'
-           }
         }
     }
 }
