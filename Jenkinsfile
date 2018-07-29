@@ -16,12 +16,10 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('build-docker')
-        {    
-          node {
-                steps{sh ' echo ${node}'}
-              }
-            
-        }
-   }
+    }
+}
+pipeline {
+  node {
+    steps{sh ' echo ${node}'}
+       }
 }
