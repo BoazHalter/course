@@ -18,11 +18,12 @@ pipeline {
                  
         }
         stage('boom'){
-            steps { 
-                agent {
-                    node('master') {
-                    sh'echo test'
+            agent {
+                label "master"
                 }
+            steps {
+               sh'echo test'
+                
             }
          }
       }
