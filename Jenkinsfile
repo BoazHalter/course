@@ -19,14 +19,12 @@ pipeline {
                  
         }
         stage('docker-build') {
-           agent {
-               label 'master'
-           }
+           agent { label 'master'}
            steps {
               sh 'echo test'
            }
         }
-      }
+    }
 }
     
  
