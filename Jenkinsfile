@@ -16,16 +16,15 @@ pipeline {
 	    {
                 sh 'mvn -B -DskipTests clean package'
 	    }
-		stages{
-			stage('Test')
-	    {		  
-                steps
-	        {
-                  sh 'mvn test'
-                }
-             }
+		stages {
+	       	   stage('Test')
+	           {		  
+                      steps
+	              {
+                         sh 'mvn test'
+                      }
+                   }
 		}
-	    	
 	    
 	}
         
