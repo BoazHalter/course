@@ -17,8 +17,8 @@ pipeline {
             }
         }
    }
-   node {
-            sh ' echo ${node}'
-        }
+   node("build") {
+       sh ' echo ${node}'
+ }     
     
 }
