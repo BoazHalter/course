@@ -13,13 +13,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
-                 node('master') {
-     sh'echo test'
-    
-       }     
- 
+                sh 'mvn test' 
             }
+            node('master') {
+                sh'echo test'
+           }     
         }
     }
 }
