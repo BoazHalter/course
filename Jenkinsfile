@@ -19,7 +19,9 @@ pipeline {
     }
 }
 pipeline {
+    
   node {
+      agent { dockerfile true }
     sh 'docker build . '
        }     
    }
