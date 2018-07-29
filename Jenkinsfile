@@ -20,7 +20,7 @@ pipeline {
         }
         stage('docker build') {
            agent {
-               label "master"
+               label 'master'
            }
            steps {
               sh'echo test'
