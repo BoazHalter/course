@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'mvn test'
                  node('master') {
-      agent { dockerfile true }
+     sh'echo test'
     
        }     
  
