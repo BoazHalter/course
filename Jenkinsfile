@@ -7,17 +7,20 @@ pipeline {
                 docker {
                     image 'maven:3-alpine'
                     args '-v /root/.m2:/root/.m2'
-                    reuseNode true
+                    
                 }
             }
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
-            stage('Test') {
-                      steps {
-                sh 'mvn test'
-              }
-          }
+            stages
+            {
+               stage('Test') {
+                  steps {
+                     sh 'mvn test'
+                  }
+               }
+            }
         }
    }
 }
