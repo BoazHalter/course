@@ -17,13 +17,11 @@ pipeline {
             }
         }
         stage('build-docker')
-        {
-            agent{
-                
-                node('bla'){
-                    steps{sh ' echo ${node}'}
-                }
-            }
+        {    
+          node {
+                steps{sh ' echo ${node}'}
+              }
+            
         }
    }
 }
