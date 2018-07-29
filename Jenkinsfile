@@ -16,9 +16,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('build-docker')
+        {
+            agent{
+                node('bla'){
+              sh ' echo ${node}'
+                }
+            }
+        }
    }
-   node("build") {
-       sh ' echo ${node}'
- }     
-    
 }
