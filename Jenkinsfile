@@ -17,6 +17,8 @@ pipeline {
             }
                  
         }
+    }
+    stages {
         stage('bwat') {
         
         node('master') {
