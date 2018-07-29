@@ -24,7 +24,7 @@ pipeline {
                label 'master'
            }
            steps {
-              sh'echo test'
+              sh 'echo test'
            }
         }
       }
