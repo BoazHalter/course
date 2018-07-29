@@ -14,14 +14,14 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
+                 node {
+      agent { dockerfile true }
+    
+       }     
+ 
             }
         }
     }
 }
-pipeline {
     
-  node {
-      agent { dockerfile true }
-    sh 'docker build . '
-       }     
-   }
+ 
