@@ -1,18 +1,19 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-            reuseNode true
-        }
-    }
+    agent none
     stages {
         stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
+            agent {
+               docker {
+                 image 'maven:3-alpine'
+                 args '-v /root/.m2:/root/.m2'
+                 reuseNode true
             }
-        }
-        stage('Test') {
+         }
+         steps {
+            sh 'mvn -B -DskipTests clean package'
+         }
+       }
+       stage('Test') {
             steps {
                 sh 'mvn test' 
             }
