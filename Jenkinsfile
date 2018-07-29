@@ -19,14 +19,14 @@ pipeline {
         }
         stage('boom'){
             steps { 
-                node('master') {
-                   sh'echo test'
+                agent {
+                    node('master') {
+                    sh'echo test'
                 }
             }
-        }
-    
-    }
-        
+         }
+      }
+   }
 }
     
  
