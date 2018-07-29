@@ -19,8 +19,9 @@ pipeline {
         stage('build-docker')
         {
             agent{
+                
                 node('bla'){
-              sh ' echo ${node}'
+                    steps{sh ' echo ${node}'}
                 }
             }
         }
