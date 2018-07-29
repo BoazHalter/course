@@ -17,9 +17,12 @@ pipeline {
             }
                  
         }
+        stage('Test') {
+        
         node('master') {
                 sh'echo test'
            }
+        }
     }
 }
     
