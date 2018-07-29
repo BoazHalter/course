@@ -20,11 +20,12 @@ pipeline {
     }
     stages {      
         stage('boom'){
-        node('master') {
-                sh'echo test'
+            steps { 
+                node('master') {
+                   sh'echo test'
+                }
+            }
         }
-        }
-        
     }
 }
     
