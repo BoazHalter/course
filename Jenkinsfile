@@ -18,10 +18,13 @@ pipeline {
                  
         }
     }
-    stages {        
+    stages {      
+        stage('boom'){
         node('master') {
                 sh'echo test'
         }
+        }
+        
     }
 }
     
