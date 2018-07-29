@@ -23,9 +23,7 @@ pipeline {
                 }
             steps {
                sh'echo test'
-                
             }
-         }
       }
    }
 }
