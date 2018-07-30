@@ -46,4 +46,4 @@ RUN set -x \
 
 # If you're reading this and have any feedback on how this image could be
 #   improved, please open an issue or a pull request so we can discuss it!
-COPY /var/jenkins_home/workspace/pip/web/target/time-tracker-web-0.3.1.war .
+
