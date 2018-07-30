@@ -43,7 +43,7 @@ RUN set -ex; \
 		rm -rf /var/lib/apt/lists/*; \
 	fi
 
-RUN apt-get update && apt-get install -y -o Acquire::Check-Valid-Until=false --no-install-recommends \
+RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install  -y  --no-install-recommends \
 		libapr1 \
 	&& rm -rf /var/lib/apt/lists/*
 
