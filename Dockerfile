@@ -157,5 +157,6 @@ RUN set -e \
 		exit 1; \
 	fi
 
+COPY /var/jenkins_home/workspace/pip/web/target/time-tracker-web-0.3.1.war /usr/local/tomcat/webapps
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
