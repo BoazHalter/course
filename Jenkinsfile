@@ -37,7 +37,7 @@ pipeline
 	{
 	    agent {label 'master'}
 	    steps {
-		    sh 'docker ps'
+		    sh 'docker build . -t 10.0.0.26:5012/time-tracker:${env.BUILD_ID}'
 	    }
 	}
     }
