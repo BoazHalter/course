@@ -37,7 +37,8 @@ pipeline
 	{
 	    agent {label 'master'}
 	    steps {
-		    sh 'docker build -t timetracker:1.0 .'
+		    sh 'docker build -t timetracker:1.0.${env.BUILD_ID} .'
+		    sh 'docker run -d -p 8888:8080 timetracker:1.0.${env.BUILD_ID}'
 	    }
 	}
     }
