@@ -38,7 +38,7 @@ pipeline
 			agent {label 'master'}
 			steps
 			{
-				docker ps
+				sh 'docker ps'
 			}
 		}
 }
