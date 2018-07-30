@@ -36,23 +36,14 @@ pipeline
 	stage('docker-build')
 		{
 			agent {label 'master'}
-			steps
-			{
-				docker.withRegistry('https://registry.example.com', 'credentials-id') {
-        			def customImage = docker.build("my-image:${env.BUILD_ID}")
-        			/* Push the container to the custom Registry */
-        			customImage.push()
-    				}
-				//docker.withRegistry('http://10.0.0.26:5012','') {
-				//def customImage = docker.build("my-image:${env.BUILD_ID}")
-        			/* Push the container to the custom Registry */
-        			//customImage.push()
-				//sh 'docker ps'
-				//sh 'docker build . -t 
-				//def customImage = docker.build("my-image:${env.BUILD_ID}")
-    				//customImage.push()
-				//}
-			}
+			docker.withRegistry('https://registry.example.com', 'credentials-id') {
+
+        		def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+        		/* Push the container to the custom Registry */
+        		customImage.push()
+    			}
+			
 		}
 }
 }
