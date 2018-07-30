@@ -1,7 +1,7 @@
 pipeline {
-    agent none
+    agent none 
     stages { 
-	stage('Build') {
+	stage('Run Compiler') {
             agent {
                 docker {
                     image 'maven:3-alpine'
@@ -9,13 +9,19 @@ pipeline {
                 }
             }
 	    stages {
+		   stage('Build'){
+		      steps
+		      {
+                           sh 'mvn -B -DskipTests clean package'
+	              }
+		   }
 	       	   stage('Test') {		  
                       steps
 	              {
                          sh 'mvn test'
                       }
-                   }
-	     }
-	}   
-     }
- }
+                     }
+	
+	      }   
+                }
+           }
