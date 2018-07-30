@@ -30,8 +30,10 @@ pipeline
                     sh 'mvn test'
                 }
             }
-        }
-		stage('docker-build')
+        }	
+        		
+    }
+	stage('docker-build')
 		{
 			agent {label 'master'}
 			steps
@@ -39,7 +41,5 @@ pipeline
 				docker ps
 			}
 		}
-        		
-    }
 }
 }
