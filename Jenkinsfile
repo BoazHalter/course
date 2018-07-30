@@ -45,6 +45,8 @@ pipeline
 		    sh 'curl -v -u admin:admin123 --upload-file web/target/time-tracker-web-0.3.1.war http://10.0.0.26:8081/repository/m2/timetracker1.0.war'
 		    sh 'docker build -t timetracker:1.0 .'
 		    sh 'docker run --rm -d -p 8888:8080 timetracker:1.0' 
+		    sh ' docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0'
+		    sh ' docker push 10.0.0.26:5012/timetracker:1.0'
 		    
 	    }
 	}
