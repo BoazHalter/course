@@ -45,14 +45,14 @@ pipeline
 		    
 		    sh 'docker build -t timeframes:1.0 .'
 	
-		sh ' docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0'
+		sh ' docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0.${env.BUILD_ID}'
 		    
 		    
 	    }
 	}
 	  stage('publish artifacts'){
 		  steps{
-			  sh ' docker push 10.0.0.26:5012/timetracker:1.0'
+			  sh ' docker push 10.0.0.26:5012/timetracker:1.0.${env.BUILD_ID}'
 		  }
 	  }
     }
