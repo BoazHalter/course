@@ -49,7 +49,7 @@ pipeline
 		    
 		    sh 'docker build -t timeframes:1.0 .'
 	
-		    sh 'docker tag timetracker:${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+		    sh 'docker tag ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		    
 		    
 	    }
