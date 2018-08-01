@@ -55,8 +55,9 @@ node{
 	  }
 	if ( deploy ) {
     	stage('Deployment')
-	{
-		sh 'docker run -d -p ${PORT}:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+	{ 
+		sh' docker rmi -f $(docker images  | grep 'timetracker'|awk '{print $3}') '
+		sh 'docker run --name-d -p ${PORT}:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		echo 'http://10.0.0.26:${PORT}/time-tracker-web-0.3.1/'
 		
 	}
