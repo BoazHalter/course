@@ -46,6 +46,24 @@ pipeline
   }
 }
 node{
-echo 'bla'
+	stage('docker-build')
+	{
+	
+	    steps {
+		
+		    
+		    sh 'docker build -t timeframes:1.0 .'
+		    sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+		    
+		    
+	    }
+	}
+	stage('publish artifacts'){
+		  steps{
+			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+		  }
+	  }
+	
+
 }
 	
