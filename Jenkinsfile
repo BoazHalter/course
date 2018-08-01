@@ -43,6 +43,7 @@ pipeline
     }
   }
 }
+node{
 	stage('docker-build')
 	{
 	    agent {label 'master'}
@@ -74,3 +75,6 @@ pipeline
 	 
 	  }
 	  
+
+}
+	
