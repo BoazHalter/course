@@ -29,7 +29,7 @@ pipeline
   			//	-Dsonar.host.url=https://sonarcloud.io \
   			//	-Dsonar.login=31fefaf1f833f46277297fcde612b9fdeb6f9cbe''' 
                          // sh 'mvn -B -DskipTests clean package'
-				echo bal
+				echo 'bal'
 	                }
 		    }
 	       	stage('Test') 
@@ -37,7 +37,7 @@ pipeline
                 steps
 	            {
                 //    sh 'mvn test'
-			    echo bal
+			    echo 'bal'
                 }
             }
         }	
@@ -46,6 +46,6 @@ pipeline
   }
 }
 node{
-echo bla
+echo 'bla'
 }
 	
