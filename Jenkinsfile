@@ -24,7 +24,7 @@ pipeline
   			//	-Dsonar.organization=boazhalter-github \
   			//	-Dsonar.host.url=https://sonarcloud.io \
   			//	-Dsonar.login=31fefaf1f833f46277297fcde612b9fdeb6f9cbe''' 
-                          // sh 'mvn -B -DskipTests clean package'
+                          sh 'mvn -B -DskipTests clean package'
 	                }
 		    }
 	       	stage('Test') 
