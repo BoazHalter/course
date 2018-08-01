@@ -53,22 +53,12 @@ node{
 	stage('publish artifacts'){
 	   sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	  }
-	def x = false
-def y = false
-
-if ( !x ) {
-    x = true
-}
-
-assert x == true
-
-if ( x ) {
-    x = false
-} else {
-    y = true
-}
-
-assert x == y
+	if ( deploy ) {
+    	stge('Deployment')
+	{
+		sh 'docker run ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+	}
+    }
 
 }
 	
