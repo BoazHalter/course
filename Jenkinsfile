@@ -45,7 +45,7 @@ pipeline
 		    
 		    sh 'docker build -t timeframes:1.0 .'
 	
-		sh ' printenv #docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0.${BUILD_ID}'
+		sh 'docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0.${BUILD_ID}'
 		    
 		    
 	    }
