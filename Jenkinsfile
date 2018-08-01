@@ -48,7 +48,6 @@ pipeline
 		
 		    
 		    sh 'docker build -t timeframes:1.0 .'
-	
 		    sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		    
 		    
@@ -59,6 +58,13 @@ pipeline
 		  steps{
 			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		  }
+	  }
+	  when {
+                branch 'production'
+		  deploy 'true'
+            }
+	  stage('test when'){
+		  steps{println ok}
 	  }
     }
 }
