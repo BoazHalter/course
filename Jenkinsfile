@@ -21,20 +21,20 @@ pipeline
 			{
 		        steps
 		        {
-			  // sh '''mvn sonar:sonar \
-  			//	-Dsonar.organization=boazhalter-github \
-  			//	-Dsonar.host.url=https://sonarcloud.io \
-  			//	-Dsonar.login=31fefaf1f833f46277297fcde612b9fdeb6f9cbe''' 
-                         // sh 'mvn -B -DskipTests clean package'
-				echo 'bal'
+			  sh '''mvn sonar:sonar \
+  				-Dsonar.organization=boazhalter-github \
+  				-Dsonar.host.url=https://sonarcloud.io \
+  				-Dsonar.login=31fefaf1f833f46277297fcde612b9fdeb6f9cbe''' 
+                         sh 'mvn -B -DskipTests clean package'
+				
 	                }
 		    }
 	       	stage('Test') 
 			{		  
                 steps
 	            {
-                //    sh 'mvn test'
-			    echo 'bal'
+                    sh 'mvn test'
+			    
                 }
             }
         }	
@@ -43,8 +43,8 @@ pipeline
   }
 }
 node{
-	
 	env.REGISTRY = '10.0.0.26:5012'
+	env.PORT=8082
 	
 	stage('docker-build') {
 	   sh 'docker build -t timeframes:1.0 .'
@@ -56,8 +56,8 @@ node{
 	if ( deploy ) {
     	stage('Deployment')
 	{
-		sh 'docker run -d -p 8082:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
-		echo 'http://10.0.0.26:8082'
+		sh 'docker run -d -p ${PORT}:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+		echo 'http://10.0.0.26:${PORT}/time-tracker-web-0.3.1/'
 		
 	}
     }
