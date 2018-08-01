@@ -1,5 +1,6 @@
 pipeline 
 {
+	env.REGISTRY = ''
   agent none 
   
   stages 
@@ -45,7 +46,7 @@ pipeline
 		    
 		    sh 'docker build -t timeframes:1.0 .'
 	
-		sh 'docker tag timetracker:1.0 10.0.0.26:5012/timetracker:1.0.${BUILD_ID}'
+		    sh 'docker tag timetracker:${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		    
 		    
 	    }
@@ -53,7 +54,7 @@ pipeline
 	  stage('publish artifacts'){
 		   agent {label 'master'}
 		  steps{
-			  sh ' docker push 10.0.0.26:5012/timetracker:1.0.${BUILD_ID}'
+			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		  }
 	  }
     }
