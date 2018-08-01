@@ -43,9 +43,8 @@ pipeline
   }
 }
 node{
-	environment { 
-        REGISTRY = '10.0.0.26:5012'
-    }
+	
+	env.REGISTRY = '10.0.0.26:5012'
 	stage('docker-build')
 	{
 	
@@ -59,9 +58,7 @@ node{
 	    
 	}
 	stage('publish artifacts'){
-		  steps{
 			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
-		  }
 	  }
 	
 
