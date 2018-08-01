@@ -54,7 +54,7 @@ node{
 	   sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	  }
 	if ( deploy ) {
-    	stge('Deployment')
+    	stage('Deployment')
 	{
 		sh 'docker run ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	}
