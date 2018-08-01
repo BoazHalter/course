@@ -1,6 +1,9 @@
 pipeline 
 {
-	env.REGISTRY = ''
+	environment { 
+        REGISTRY = '10.0.0.26:5012'
+    }
+	
   agent none 
   
   stages 
