@@ -41,7 +41,8 @@ pipeline
         }	
         		
     }
-	stage('docker-build')
+	  node {
+	  stage('docker-build')
 	{
 	    agent {label 'master'}
 	    steps {
@@ -53,6 +54,8 @@ pipeline
 		    
 	    }
 	}
+	  }
+	
 	  stage('publish artifacts'){
 		   agent {label 'master'}
 		  steps{
