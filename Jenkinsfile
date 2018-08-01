@@ -1,8 +1,5 @@
 pipeline 
 {
-	environment { 
-        REGISTRY = '10.0.0.26:5012'
-    }
 	
   agent none 
   
@@ -46,6 +43,9 @@ pipeline
   }
 }
 node{
+	environment { 
+        REGISTRY = '10.0.0.26:5012'
+    }
 	stage('docker-build')
 	{
 	
