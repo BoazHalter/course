@@ -51,6 +51,7 @@ pipeline
 	    }
 	}
 	  stage('publish artifacts'){
+		   agent {label 'master'}
 		  steps{
 			  sh ' docker push 10.0.0.26:5012/timetracker:1.0.${BUILD_ID}'
 		  }
