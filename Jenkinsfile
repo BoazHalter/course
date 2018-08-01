@@ -59,12 +59,16 @@ pipeline
 			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		  }
 	  }
-	  when {
-                branch 'production'
-		  deploy 'true'
-            }
-	  stage('test when'){
-		  steps{println ok}
+	  if {
+	     stage('test if'){
+		     steps { println ok}
+	     }
 	  }
+	  else {
+	     stage('test if'){
+		     steps { println also ok}
+	     }
+	  }
+	  
     }
 }
