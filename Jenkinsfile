@@ -59,7 +59,6 @@ pipeline
 			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		  }
 	  }
-	  script {
 		  if ( deploy == 'true') {
 	     stage('test if'){
 		     steps { echo  ok}
@@ -69,7 +68,7 @@ pipeline
 	     stage('test if'){
 		     steps { echo also ok}
 	     }
-	  }
+	 
 	  }
 	  
 	  
