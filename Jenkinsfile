@@ -41,39 +41,5 @@ pipeline
         }	
         		
     }
-	  node {
-	  stage('docker-build')
-	{
-	    agent {label 'master'}
-	    steps {
-		
-		    
-		    sh 'docker build -t timeframes:1.0 .'
-		    sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
-		    
-		    
-	    }
-	}
-	  }
-	
-	  stage('publish artifacts'){
-		   agent {label 'master'}
-		  steps{
-			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
-		  }
-	  }
-		  if ( deploy == 'true') {
-	     stage('test if'){
-		     steps { echo  ok}
-	     }
-	  }
-	  else {
-	     stage('test if'){
-		     steps { echo also ok}
-	     }
-	 
-	  }
-	  
-	  
-    }
-}
+  }
+def deploy () {}
