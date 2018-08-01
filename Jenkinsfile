@@ -56,7 +56,7 @@ node{
 	if ( deploy ) {
     	stage('Deployment')
 	{
-		sh 'docker run ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+		sh 'docker run -p8082:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	}
     }
 
