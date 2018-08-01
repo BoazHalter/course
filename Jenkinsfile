@@ -45,22 +45,30 @@ pipeline
 node{
 	
 	env.REGISTRY = '10.0.0.26:5012'
-	stage('docker-build')
-	{
 	
-	    
-		
-		    
-		    sh 'docker build -t timeframes:1.0 .'
-		    sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
-		    
-		    
-	    
+	stage('docker-build') {
+	   sh 'docker build -t timeframes:1.0 .'
+	   sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	}
 	stage('publish artifacts'){
-			  sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
+	   sh ' docker push ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	  }
-	
+	def x = false
+def y = false
+
+if ( !x ) {
+    x = true
+}
+
+assert x == true
+
+if ( x ) {
+    x = false
+} else {
+    y = true
+}
+
+assert x == y
 
 }
 	
