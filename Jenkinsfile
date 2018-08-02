@@ -2,7 +2,10 @@ pipeline
 {
 	
   agent none 
-  
+  withEnv([]) {
+    deploy = true
+}
+
   stages 
   { 
 	stage('Run Compiler') 
