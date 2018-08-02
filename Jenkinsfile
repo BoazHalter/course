@@ -48,7 +48,7 @@ node{
 	
 	stage('docker-build') {
 	   sh '''
-	         set +e
+	         set -e
 	         docker rmi -f $(docker images  | grep "timetracker"|awk '{print $3}')
 	         docker rm -f $( docker ps -a  |grep 'timetracker'|awk '{print $1}')'''
 	   sh 'docker build -t timeframes:1.0 .'
