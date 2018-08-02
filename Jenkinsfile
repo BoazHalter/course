@@ -47,6 +47,10 @@ node{
 	env.PORT=8082
 	
 	stage('docker-build') {
+	   sh '''
+	         set +e
+	         docker rmi -f $(docker images  | grep "timetracker"|awk '{print $3}')
+	         docker rm -f $( docker ps -a  |grep 'timetracker'|awk '{print $1}')'''
 	   sh 'docker build -t timeframes:1.0 .'
 	   sh 'docker tag timeframes:1.0 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 	}
@@ -56,9 +60,7 @@ node{
 	if ( deploy ) {
     	stage('Deployment')
 	{ 
-		sh 'set +e'
-		sh '''docker rmi -f $(docker images  | grep "timetracker"|awk '{print $3}') '''
-		sh '''docker rm -f $( docker ps -a  |grep 'timetracker'|awk '{print $1}')'''
+		
 		sh 'docker run --name-d -p ${PORT}:8080 ${REGISTRY}/timetracker:1.0.${BUILD_ID}'
 		echo 'http://10.0.0.26:${PORT}/time-tracker-web-0.3.1/'
 		
