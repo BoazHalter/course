@@ -47,7 +47,7 @@ pipeline
 node{
 	env.REGISTRY = '10.0.0.26:5012'
 	env.PORT=8082
-	env.deploy = false
+	deploy = false
 	
 	stage('docker-build') {
 	   
